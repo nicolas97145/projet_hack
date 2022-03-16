@@ -5,15 +5,14 @@ import exceptions.utilisateurExistantException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Facade {
     private static Facade instance=null;
 
     private Map<String, User> users;
+    private Collection<String> listSpecialitiesBac;
 
     private Facade()  {
         users=new HashMap<>();
@@ -23,6 +22,11 @@ public class Facade {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        listSpecialitiesBac = new ArrayList<>();
+        listSpecialitiesBac.add("Générale");
+        listSpecialitiesBac.add("Professionnelle");
+        listSpecialitiesBac.add("Technologique");
     }
 
     public static synchronized Facade getInstance() {
@@ -50,10 +54,14 @@ public class Facade {
 
 
    }
+    public Collection<String> getListSpe(){
+        return listSpecialitiesBac;
+    }
 
    public Boolean isVideOrNull (Object object){
        return Objects.isNull(object)&&object.toString().equals("");
        }
    }
+
 
 

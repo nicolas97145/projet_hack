@@ -1,5 +1,6 @@
 package controllers;
 
+import dtos.SpecialiteBac;
 import dtos.User;
 import exceptions.utilisateurExistantException;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import services.Facade;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @SessionAttributes("courant")
@@ -23,6 +26,8 @@ public class AssuranceController {
 
     @RequestMapping("")
     public String toLogin(Model model) {
+        System.out.println(facade.getListSpe());
+        model.addAttribute("listSpecialitiesBac", facade.getListSpe());
         //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
         model.addAttribute(new User());
         return("inscription");

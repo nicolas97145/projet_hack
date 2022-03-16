@@ -20,8 +20,6 @@ public class User {
     private String sexe;
     private String mail;
     private String password;
-
-
     private String Bac;
     private enum mention {NA, AB, B, TB}
     List<Contrat> contrats;

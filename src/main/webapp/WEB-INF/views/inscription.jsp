@@ -23,7 +23,20 @@
     </p>
     <p><form:label path="mail">mail</form:label> <form:input type="text" path="mail"/></p>
     <p><form:label path="password">mot de passe</form:label> <form:password path="password"/></p>
-<%--    <p><form:label path="sexe">sexe</form:label> <form:radiobutton path="sexe" value="homme"/> <form:radiobutton path="sexe" value="femmme"/> </p>--%>
+    <p><form:label path="bac">Bac</form:label> <form:select type="select" path="bac"/></p>
+<%--    <form:option value="NONE"> --Sélectionnez une spécialité--</form:option>--%>
+<%--        <form:options items="${listSpecialitiesBac}"></form:options>--%>
+<%--    </form:select>--%>
+    <select name="specs" id="bac">
+        <option value="">--Sélectionnez---</option>
+            <c:forEach items="${listSpecialitiesBac}" var="specBacs" varStatus="loop">
+                <option value="${loop}">
+                        ${specBacs}
+                </option>
+            </c:forEach>
+    </select>
+
+    <%--    <p><form:label path="sexe">sexe</form:label> <form:radiobutton path="sexe" value="homme"/> <form:radiobutton path="sexe" value="femmme"/> </p>--%>
 
 
 

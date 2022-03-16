@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import services.Facade;
 
+import java.util.Date;
+
 @Controller
 @SessionAttributes("courant")
 @RequestMapping("/")
@@ -46,12 +48,11 @@ public class AssuranceController {
 
     @RequestMapping("inscription")
     public String inscription(User user, BindingResult result, Model model){
-        System.out.println("yo");
-       /* try {
+        try {
             facade.inscription(user.getNom(), user.getPrenom(), user.getDateNaissance(), user.getSexe(), user.getMail(), user.getPassword());
         } catch (utilisateurExistantException e) {
             return "inscription";
-        }*/
+        }
         return "welcome";
     }
 

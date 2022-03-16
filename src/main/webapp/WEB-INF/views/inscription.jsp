@@ -12,17 +12,17 @@
 <!-- on utilise form:form qui vient de spring mvc et on précise le modelAttribute. Sinon ls messages d'erreur ne sont pas traités -->
 <%--@elvariable id="user" type=""--%>
 <form:form method="post" action="${pageContext.request.contextPath}/inscription"  modelAttribute="user">
-    <p><form:label path="nom">nom</form:label> <form:input type="texte" path="nom"/></p>
-    <p><form:label path="prenom">prenom</form:label> <form:input type="texte" path="prenom"/></p>
+    <p><form:label path="nom">nom</form:label> <form:input type="text" path="nom"/></p>
+    <p><form:label path="prenom">prenom</form:label> <form:input type="text" path="prenom"/></p>
     <p><form:label path="dateNaissance">date de naissance</form:label> <form:input type="date" path="dateNaissance"/></p>
     <p><form:label path="sexe">sexe</form:label> <br>
         <label> Homme </label>
         <form:radiobutton path="sexe" value="homme"/>
         <label> Femme </label>
-        <form:radiobutton path="sexe" value="femmme"/>
+        <form:radiobutton path="sexe" value="femme"/>
     </p>
     <p><form:label path="mail">mail</form:label> <form:input type="text" path="mail"/></p>
-    <p><form:label path="password">mot de passe</form:label> <form:input type="texte" path="password"/></p>
+    <p><form:label path="password">mot de passe</form:label> <form:password path="password"/></p>
 <%--    <p><form:label path="sexe">sexe</form:label> <form:radiobutton path="sexe" value="homme"/> <form:radiobutton path="sexe" value="femmme"/> </p>--%>
 
 

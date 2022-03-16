@@ -1,5 +1,7 @@
 package dtos;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 public class User {
     private String nom;
     private String prenom;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
     private String sexe;
     private String mail;

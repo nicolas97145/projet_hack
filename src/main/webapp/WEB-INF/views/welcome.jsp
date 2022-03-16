@@ -3,21 +3,22 @@
 
 <html>
 <head>
-    <title>Bienvenue</title>
+    <%@ include file="header.jsp" %>
+    <title>Home Page</title>
 </head>
 <body>
-Bienvenue, ${username}.
-
-<form action="${pageContext.request.contextPath}/logout">
-    <button type="submit">se déconnecter</button>
-</form>
-
-<form action="${pageContext.request.contextPath}/simplecheck">
-    <button type="submit">Vérifier le login en session (en trace de serveur)</button>
-</form>
-
-<jsp:include page="session.jsp"></jsp:include>
-
-
+<div class="card">
+    <div class="card-header">
+        Bienvenu
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>Vous allez profiter de la meilleure assurance du marché.</p>
+        </blockquote>
+    </div>
+</div>
 </body>
+<footer>
+    <%@ include file="footer.jsp" %>
+</footer>
 </html>

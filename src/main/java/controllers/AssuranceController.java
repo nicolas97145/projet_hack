@@ -1,15 +1,22 @@
 package controllers;
 
+import dtos.Contrat;
 import dtos.User;
+import exceptions.contratInvalidException;
+import exceptions.idTauxNonTrouveeException;
+import exceptions.tauxInvalidException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import services.Facade;
+
+import java.util.Date;
 
 @Controller
 @SessionAttributes("courant")
@@ -20,7 +27,7 @@ public class AssuranceController {
     public String toLogin(Model model) {
         //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
         model.addAttribute(new User());
-        return("login");
+        return("souscription");
     }
 
     // on passe un objet user en paramètre : mapping automatique des champs du formulaire
@@ -41,11 +48,17 @@ public class AssuranceController {
         }
     }
 
-    @RequestMapping("souscription")
+ /*   @RequestMapping("souscription")
     public String souscriptionContrat(@SessionAttribute String courant, BindingResult bindingResult, Model model) {
-
-        return "souscription";
-    }
+        Date dateDebut = (Date) model.getAttribute("dateDebutContrat");
+        Date dateFin = (Date) model.getAttribute("dateFinContrat");
+        try {
+            facade.creerContrat(courant,dateDebut,dateFin);
+        } catch (contratInvalidException | idTauxNonTrouveeException | tauxInvalidException e) {
+            return "souscription";
+        }
+        return "welcome";
+    }*/
 
     @RequestMapping("simplecheck")
     public String simpleCheck(@SessionAttribute String courant,Model model){

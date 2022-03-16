@@ -18,6 +18,7 @@ public class User {
     private String sexe;
     private Date dateNaissance;
     private String Bac;
+    private String mention;
     List<Contrat> contrats;
 
     public User(){}
@@ -93,5 +94,13 @@ public class User {
 
     public void setContrats(List<Contrat> contrats) {
         this.contrats = contrats;
+    }
+
+    public String getMention() {
+        return mention;
+    }
+
+    public void setMention(String mention) {
+        this.mention = mention;
     }
 }

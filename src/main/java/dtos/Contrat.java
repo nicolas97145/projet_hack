@@ -1,11 +1,16 @@
 package dtos;
 
-import java.sql.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 public class Contrat {
 
     private String numeroContrat;
-    private Date dateDébutContrat;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateDebutContrat;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateFinContrat;
     private double prixAnnuel;
     private Etude etude;
@@ -15,9 +20,9 @@ public class Contrat {
         
     }
 
-    public Contrat(String numeroContrat, Date dateDébutContrat, Date dateFinContrat, double prixAnnuel) {
+    public Contrat(String numeroContrat, Date dateDebutContrat, Date dateFinContrat, double prixAnnuel) {
         this.numeroContrat = numeroContrat;
-        this.dateDébutContrat = dateDébutContrat;
+        this.dateDebutContrat = dateDebutContrat;
         this.dateFinContrat = dateFinContrat;
         this.prixAnnuel = prixAnnuel;
     }
@@ -30,12 +35,12 @@ public class Contrat {
         this.numeroContrat = numeroContrat;
     }
 
-    public Date getDateDébutContrat() {
-        return dateDébutContrat;
+    public Date getDateDebutContrat() {
+        return dateDebutContrat;
     }
 
-    public void setDateDébutContrat(Date dateDébutContrat) {
-        this.dateDébutContrat = dateDébutContrat;
+    public void setDateDebutContrat(Date dateDébutContrat) {
+        this.dateDebutContrat = dateDébutContrat;
     }
 
     public Date getDateFinContrat() {

@@ -17,7 +17,5 @@ Bienvenue, ${username}.
 </form>
 
 <jsp:include page="session.jsp"></jsp:include>
-
-
 </body>
 </html>

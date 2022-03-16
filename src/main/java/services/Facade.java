@@ -8,7 +8,6 @@ import exceptions.contratInvalidException;
 import exceptions.idTauxNonTrouveeException;
 import exceptions.tauxInvalidException;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -65,7 +64,7 @@ public class Facade {
                .getTranche();
    }
 
-   public void creerContrat(String mail, String bac, Date dateDebutContrat, Date dateFinContrat) throws contratInvalidException, idTauxNonTrouveeException, tauxInvalidException {
+   public void creerContrat(String mail, Date dateDebutContrat, Date dateFinContrat) throws contratInvalidException, idTauxNonTrouveeException, tauxInvalidException {
         String numeroContrat = UUID.randomUUID().toString();
         double tranche = getTrancheByTaux(getTauxReussiteById(1));
         double prixAnnuel = (tranche * etude.getPrix())*1/3;
@@ -73,7 +72,6 @@ public class Facade {
             Contrat contrat = new Contrat(numeroContrat,dateDebutContrat,dateFinContrat,prixAnnuel);
             contrat.setEtude(etude);
             User user = users.get(mail);
-            user.setBac(bac);
             user.getContrats().add(contrat);
         } else {
             throw new contratInvalidException();
@@ -83,4 +81,6 @@ public class Facade {
    public Boolean isVideOrNull(Object object){
         return Objects.isNull(object)&&object.toString().equals("");
    }
+
+
 }

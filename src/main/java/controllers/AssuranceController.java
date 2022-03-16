@@ -1,6 +1,7 @@
 package controllers;
 
 import dtos.User;
+import exceptions.utilisateurExistantException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,23 +15,25 @@ import services.Facade;
 @Controller
 @SessionAttributes("courant")
 @RequestMapping("/")
-public class Exemple2Controller {
+public class AssuranceController {
+
     private Facade facade=Facade.getInstance();
+
     @RequestMapping("")
     public String toLogin(Model model) {
         //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
         model.addAttribute(new User());
-        return("login");
+        return("inscription");
     }
 
     // on passe un objet user en paramètre : mapping automatique des champs du formulaire
     // on jour aussi avec les messages d'erreurs (BindingResult) ...
     @RequestMapping("login")
     public String checkLP(User user, BindingResult result, Model model){
-        if (facade.checkLP(user.getLogin(),user.getPassword())) {
+        if (facade.checkLP(user.getMail(),user)) {
             // on place courant dans le modèle, mais il s'agit d'un attribut de session, il se retrouve ainsi conservé en session
-            model.addAttribute("courant",user.getLogin());
-            model.addAttribute("username",user.getLogin());
+            model.addAttribute("courant",user.getMail());
+            model.addAttribute("username",user.getMail());
             return "welcome";
         } else {
             // on crée à la volée un "ObjectError" : erreur globale dans l'objet (ici l'objet c'est l'instance de user où transitent les infos de login)
@@ -39,6 +42,17 @@ public class Exemple2Controller {
             // le user du model est renvoyé tel quel à la jsp, et on préserve les valeurs saisies (comment réinitialiser ?)
             return "login";
         }
+    }
+
+    @RequestMapping("inscription")
+    public String inscription(User user, BindingResult result, Model model){
+        System.out.println("yo");
+       /* try {
+            facade.inscription(user.getNom(), user.getPrenom(), user.getDateNaissance(), user.getSexe(), user.getMail(), user.getPassword());
+        } catch (utilisateurExistantException e) {
+            return "inscription";
+        }*/
+        return "welcome";
     }
 
     @RequestMapping("simplecheck")

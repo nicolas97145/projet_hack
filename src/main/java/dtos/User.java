@@ -1,6 +1,9 @@
 package dtos;
 
-import java.sql.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,24 +13,29 @@ import java.util.List;
  * Nous en reparlerons plus tard...
  */
 public class User {
-    private String mail;
-    private String password;
     private String nom;
     private String prenom;
-    private String sexe;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
+    private String sexe;
+    private String mail;
+    private String password;
+
+
     private String Bac;
     private enum mention {NA, AB, B, TB}
     List<Contrat> contrats;
 
     public User(){}
 
-    public User(String mail, String password, String nom, String prenom, String sexe) {
+    public User(String mail, String password, String nom, String prenom, Date dateNaissance, String sexe) {
         this.mail = mail;
         this.password = password;
         this.nom = nom;
         this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
         this.sexe = sexe;
+        contrats = new ArrayList<>();
     }
 
     public String getMail() {
@@ -68,5 +76,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public String getBac() {
+        return Bac;
+    }
+
+    public List<Contrat> getContrats() {
+        return contrats;
+    }
+
+    public void setBac(String bac) {
+        Bac = bac;
+    }
+
+    public void setContrats(List<Contrat> contrats) {
+        this.contrats = contrats;
     }
 }

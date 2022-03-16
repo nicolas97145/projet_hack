@@ -2,16 +2,17 @@ package dtos;
 
 public class Etude {
 
-    private enum cycle {BTS, DUT, LICENCE}
     private int année;
     private String cursus;
     private double prix;
+    private String cycle;
 
     public Etude(){}
 
-    public Etude(int année, String cursus, double prix) {
+    public Etude(int année, String cycle, String cursus, double prix) {
         this.année = année;
         this.cursus = cursus;
+        this.cycle = cycle;
         this.prix = prix;
     }
 
@@ -37,5 +38,13 @@ public class Etude {
 
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    public String getCycle() {
+        return cycle;
+    }
+
+    public void setCycle(String cycle) {
+        this.cycle = cycle;
     }
 }

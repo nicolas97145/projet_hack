@@ -4,21 +4,21 @@
 <html>
 <head>
     <%@ include file="header.jsp" %>
-    <title>Home Page</title>
+    <title>Page d'accueil</title>
 </head>
 <body>
 <div class="card">
-    <div class="card-header">
-        Bienvenu
+    <div style="text-align: center">
+        <h2>Bienvenue</h2>
     </div>
     <div class="card-body">
         <blockquote class="blockquote mb-0">
             <p>Vous allez profiter de la meilleure assurance du marché.</p>
+            <p>Chez Soumiassure, on vous assure! Pas de perte d'argent en cas d'échec scolaire!</p>
+            <img src="<c:url value="../images/etudes-assurance.jpg"/>"/>
         </blockquote>
     </div>
 </div>
 </body>
-<footer>
-    <%@ include file="footer.jsp" %>
-</footer>
+<%@ include file="footer.jsp" %>
 </html>

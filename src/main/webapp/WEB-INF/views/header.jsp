@@ -15,17 +15,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/login">Connexion</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Inscription</a>
-            </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login">Connexion</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/inscription">Inscription</a>
+                </li>
+
             <c:if test="${ not empty sessionScope.courant}">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Déconnexion</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/profil">Profil</a>
+                </li>
+            </c:if>
+            <c:if test="${ not empty sessionScope.courant}">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/logout">Déconnexion</a>
                 </li>
             </c:if>
         </ul>

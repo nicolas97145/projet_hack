@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
         @Override
         public void configureViewResolvers(ViewResolverRegistry viewResolverRegistry) {
             viewResolverRegistry.jsp("/WEB-INF/views/",".jsp");
+            viewResolverRegistry.jsp("/WEB-INF/images/",".jpg");
         }
 
      /*  @Override

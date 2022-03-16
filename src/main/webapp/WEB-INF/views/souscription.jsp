@@ -14,6 +14,10 @@
 <%--@elvariable id="user" type=""--%>
 
 <form:form method="post" action="${pageContext.request.contextPath}/souscription">
+    <p><form:label path="cycle">Date fin de contrat</form:label> <form:input type="text" path="cycle"/></p>
+    <p><form:label path="cursus">Date debut de contrat</form:label> <form:input type="text" path="cursus"/></p>
+    <p><form:label path="prixAnnee">Date debut de contrat</form:label> <form:input type="number" path="prixAnnee"/></p>
+
     <p><form:label path="dateDebutContrat">Date fin de contrat</form:label> <form:input type="date" path="dateDebutContrat"/></p>
     <p><form:label path="dateFinContrat">Date debut de contrat</form:label> <form:input type="date" path="dateFinContrat"/></p>
     <p><button type="submit">Souscrire</button></p>

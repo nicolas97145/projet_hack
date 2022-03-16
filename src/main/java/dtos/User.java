@@ -1,6 +1,7 @@
 package dtos;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,6 @@ public class User {
     private String sexe;
     private Date dateNaissance;
     private String Bac;
-    private enum mention {NA, AB, B, TB}
     List<Contrat> contrats;
 
     public User(){}
@@ -28,6 +28,7 @@ public class User {
         this.nom = nom;
         this.prenom = prenom;
         this.sexe = sexe;
+        contrats = new ArrayList<>();
     }
 
     public String getMail() {
@@ -68,5 +69,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public String getBac() {
+        return Bac;
+    }
+
+    public void setBac(String bac) {
+        Bac = bac;
+    }
+
+    public List<Contrat> getContrats() {
+        return contrats;
+    }
+
+    public void setContrats(List<Contrat> contrats) {
+        this.contrats = contrats;
     }
 }

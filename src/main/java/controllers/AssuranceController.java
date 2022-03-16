@@ -14,7 +14,7 @@ import services.Facade;
 @Controller
 @SessionAttributes("courant")
 @RequestMapping("/")
-public class Exemple2Controller {
+public class AssuranceController {
     private Facade facade=Facade.getInstance();
     @RequestMapping("")
     public String toLogin(Model model) {
@@ -27,7 +27,7 @@ public class Exemple2Controller {
     // on jour aussi avec les messages d'erreurs (BindingResult) ...
     @RequestMapping("login")
     public String checkLP(User user, BindingResult result, Model model){
-        if (facade.checkLP(user.getMail(),user.getPassword())) {
+        if (facade.checkLP(user.getMail(),user)) {
             // on place courant dans le modèle, mais il s'agit d'un attribut de session, il se retrouve ainsi conservé en session
             model.addAttribute("courant",user.getMail());
             model.addAttribute("username",user.getMail());
@@ -39,6 +39,12 @@ public class Exemple2Controller {
             // le user du model est renvoyé tel quel à la jsp, et on préserve les valeurs saisies (comment réinitialiser ?)
             return "login";
         }
+    }
+
+    @RequestMapping("souscription")
+    public String souscriptionContrat(@SessionAttribute String courant, BindingResult bindingResult, Model model) {
+
+        return "souscription";
     }
 
     @RequestMapping("simplecheck")

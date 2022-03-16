@@ -10,7 +10,7 @@
 Bienvenue, ${username}.
 
 <%--@elvariable id="sinistre" type=""--%>
-<form:form method="post" action="${pageContext.request.contextPath}/welcome"  modelAttribute="sinistre">
+<form:form method="post" action="${pageContext.request.contextPath}/sinistreDeclare"  modelAttribute="sinistre">
     <p><form:label path="noteS1">note du Semestre 1 : </form:label> <form:input type="text" path="noteS1"/></p>
     <p><form:label path="noteS2">note du Semestre 2 :</form:label> <form:input type="text" path="noteS2"/></p>
     <p><button type="submit">Envoyer</button></p>

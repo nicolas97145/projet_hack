@@ -1,9 +1,11 @@
 package dtos;
 
 import java.sql.Date;
+import java.util.UUID;
 
 public class Sinistre {
 
+    private UUID id;
     private Date dateDeclaration;
     private double pourcentageRemboursement;
     private double noteS1;
@@ -11,14 +13,20 @@ public class Sinistre {
     private double indemnite;
 
     public Sinistre() {
+        this.id= UUID.randomUUID();
     }
 
     public Sinistre(Date dateDeclaration, double pourcentageRemboursement, double noteS1, double noteS2, double indemnite) {
+        this.id= UUID.randomUUID();
         this.dateDeclaration = dateDeclaration;
         this.pourcentageRemboursement = pourcentageRemboursement;
         this.noteS1 = noteS1;
         this.noteS2 = noteS2;
         this.indemnite = indemnite;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public Date getDateDeclaration() {

@@ -3,6 +3,9 @@ package controllers;
 import dtos.Contrat;
 import dtos.Sinistre;
 import dtos.User;
+import exception.AucunContratExcpetion;
+import exception.ContratExpireException;
+import exception.SinistreDejaExistant;
 import exception.UtilisateurInexistantException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import services.Facade;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,6 +32,13 @@ public class Exemple2Controller {
         //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
         model.addAttribute(new User());
         return("login");
+    }
+
+    @RequestMapping("/sinistre")
+    public String toSinsitre(Model model) {
+        //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
+        model.addAttribute(new Sinistre());
+        return("sinistre");
     }
 
     // on passe un objet user en paramètre : mapping automatique des champs du formulaire
@@ -60,16 +73,23 @@ public class Exemple2Controller {
         return "login";
     }
 
-    @RequestMapping("sinistre")
-    public String sinistre(@SessionAttribute String courant,Model model) throws UtilisateurInexistantException {
-        model.addAttribute("username",courant);
-
-        User user = facade.getUser(courant);
-        List<Contrat> contrats = facade.getContrats(courant);
-        Sinistre sinisitre = new Sinistre();
-
-        model.addAttribute("noteS1",sinisitre.getNoteS1());
-        model.addAttribute("noteS2",sinisitre.getNoteS2());
-        return "sinistre";
+    @RequestMapping("sinistreDeclare")
+    public String sinistre(@SessionAttribute String courant, Sinistre sinistre, BindingResult result ,Model model) throws ContratExpireException, AucunContratExcpetion, SinistreDejaExistant {
+        try {
+            User user = facade.getUser(courant);
+            Contrat contrat = user.getContrats().get(user.getContrats().size()-1);
+            if (contrat.getSinistre()==null){
+                try {
+                    facade.addSinistre(sinistre,courant);
+                } catch (UtilisateurInexistantException e) {
+                    return "welcome";
+                }
+                return "sinistre";
+            }else{
+                return "welcome";
+            }
+        } catch (UtilisateurInexistantException e) {
+            return "welcome";
+        }
     }
 }

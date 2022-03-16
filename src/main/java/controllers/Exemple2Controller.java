@@ -27,10 +27,10 @@ public class Exemple2Controller {
     // on jour aussi avec les messages d'erreurs (BindingResult) ...
     @RequestMapping("login")
     public String checkLP(User user, BindingResult result, Model model){
-        if (facade.checkLP(user.getLogin(),user.getPassword())) {
+        if (facade.checkLP(user.getMail(),user.getPassword())) {
             // on place courant dans le modèle, mais il s'agit d'un attribut de session, il se retrouve ainsi conservé en session
-            model.addAttribute("courant",user.getLogin());
-            model.addAttribute("username",user.getLogin());
+            model.addAttribute("courant",user.getMail());
+            model.addAttribute("username",user.getMail());
             return "welcome";
         } else {
             // on crée à la volée un "ObjectError" : erreur globale dans l'objet (ici l'objet c'est l'instance de user où transitent les infos de login)

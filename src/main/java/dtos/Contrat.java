@@ -12,6 +12,7 @@ public class Contrat {
     private Sinistre sinistre;
 
     public Contrat() {
+        
     }
 
     public Contrat(String numeroContrat, Date dateDébutContrat, Date dateFinContrat, double prixAnnuel) {

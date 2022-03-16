@@ -1,5 +1,7 @@
 package dtos;
 
+import java.util.UUID;
+
 public class SpecialiteBac {
 
     private String nom;

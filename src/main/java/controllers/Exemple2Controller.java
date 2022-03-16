@@ -3,6 +3,7 @@ package controllers;
 import dtos.Contrat;
 import dtos.Sinistre;
 import dtos.User;
+import exception.UtilisateurInexistantException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import services.Facade;
+
+import java.util.List;
 
 @Controller
 @SessionAttributes("courant")
@@ -58,15 +61,15 @@ public class Exemple2Controller {
     }
 
     @RequestMapping("sinistre")
-    public String sinistre(@SessionAttribute String courant,Model model) {
+    public String sinistre(@SessionAttribute String courant,Model model) throws UtilisateurInexistantException {
         model.addAttribute("username",courant);
 
-        User user = new User();
-        Contrat contrat = new Contrat();
+        User user = facade.getUser(courant);
+        List<Contrat> contrats = facade.getContrats(courant);
         Sinistre sinisitre = new Sinistre();
 
-        model.addAttribute("noteS1",user.getNom());
-        model.addAttribute("noteS2",user.getMail());
+        model.addAttribute("noteS1",sinisitre.getNoteS1());
+        model.addAttribute("noteS2",sinisitre.getNoteS2());
         return "sinistre";
     }
 }

@@ -69,4 +69,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<Contrat> getContrats() {
+        return contrats;
+    }
+
+    public void setContrats(List<Contrat> contrats) {
+        this.contrats = contrats;
+    }
 }

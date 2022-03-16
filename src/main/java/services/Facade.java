@@ -10,8 +10,8 @@ public class Facade {
 
     private Facade(){
         users=new HashMap<>();
-        users.put("alice","alice");
-        users.put("bob","bob");
+        users.put("alice@alice","alice");
+        users.put("bob@bob","bob");
     }
 
     public static synchronized Facade getInstance() {
@@ -21,8 +21,8 @@ public class Facade {
         return instance;
     }
 
-    public boolean checkLP(String login,String password) {
-        String pwd=users.get(login);
+    public boolean checkLP(String email,String password) {
+        String pwd=users.get(email);
         return ((pwd!=null) && (pwd.equals(password)));
    }
 

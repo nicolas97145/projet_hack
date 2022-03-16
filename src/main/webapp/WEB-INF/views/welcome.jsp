@@ -8,6 +8,10 @@
 <body>
 Bienvenue, ${username}.
 
+<form action="${pageContext.request.contextPath}/sinistre">
+    <button type="submit">Déclarer un sinistre</button>
+</form>
+
 <form action="${pageContext.request.contextPath}/logout">
     <button type="submit">se déconnecter</button>
 </form>

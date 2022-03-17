@@ -5,10 +5,10 @@
 
 <html>
 <head>
-    <title>Identification</title>
+    <title>Inscription</title>
 </head>
 <body>
-<h1>IDENTIFICATION</h1>
+<h1>INSCRIPTION</h1>
 <!-- on utilise form:form qui vient de spring mvc et on précise le modelAttribute. Sinon ls messages d'erreur ne sont pas traités -->
 <%--@elvariable id="user" type=""--%>
 <form:form method="post" action="${pageContext.request.contextPath}/inscription"  modelAttribute="user">
@@ -23,7 +23,7 @@
     </p>
     <p><form:label path="mail">mail</form:label> <form:input type="text" path="mail"/></p>
     <p><form:label path="password">mot de passe</form:label> <form:password path="password"/></p>
-    <p><form:label path="bac">Bac</form:label> <form:select type="select" path="bac"/></p>
+    <p><form:label path="bac">Bac</form:label>
 <%--    <form:option value="NONE"> --Sélectionnez une spécialité--</form:option>--%>
 <%--        <form:options items="${listSpecialitiesBac}"></form:options>--%>
 <%--    </form:select>--%>
@@ -35,7 +35,7 @@
                 </option>
             </c:forEach>
     </select>
-
+    </p>
     <%--    <p><form:label path="sexe">sexe</form:label> <form:radiobutton path="sexe" value="homme"/> <form:radiobutton path="sexe" value="femmme"/> </p>--%>
 
 

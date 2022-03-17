@@ -26,7 +26,6 @@ public class AssuranceController {
 
     @RequestMapping("")
     public String toLogin(Model model) {
-        System.out.println(facade.getListSpe());
         model.addAttribute("listSpecialitiesBac", facade.getListSpe());
         //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
         model.addAttribute(new User());

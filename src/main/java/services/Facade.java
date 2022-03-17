@@ -24,8 +24,8 @@ public class Facade {
         }
 
         listSpecialitiesBac = new ArrayList<>();
-        listSpecialitiesBac.add("Générale");
-        listSpecialitiesBac.add("Professionnelle");
+        listSpecialitiesBac.add("Général");
+        listSpecialitiesBac.add("Professionnel");
         listSpecialitiesBac.add("Technologique");
     }
 

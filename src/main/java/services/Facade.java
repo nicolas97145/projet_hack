@@ -33,8 +33,6 @@ public class Facade {
 
         lesTaux = new ArrayList<>(Arrays.asList(new Taux(60, 69, 0.6f), new Taux(70, 79, 0.5f),
                 new Taux(80, 89, 0.4f), new Taux(90, 100, 0.3f)));
-
-        etude = new Etude(1,"Licence", "Droit", 425);
     }
 
     public static synchronized Facade getInstance() {
@@ -62,6 +60,10 @@ public class Facade {
                .findFirst()
                .orElseThrow(tauxInvalidException::new)
                .getTranche();
+   }
+
+   public void creerEtude(int annee, String cycle, String cursus, double prix) {
+        etude = new Etude(annee,cycle,cursus,prix);
    }
 
    public void creerContrat(String mail, Date dateDebutContrat, Date dateFinContrat) throws contratInvalidException, idTauxNonTrouveeException, tauxInvalidException {

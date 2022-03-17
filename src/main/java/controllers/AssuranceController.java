@@ -1,6 +1,7 @@
 package controllers;
 
 import dtos.Contrat;
+import dtos.Etude;
 import dtos.User;
 import exceptions.contratInvalidException;
 import exceptions.idTauxNonTrouveeException;
@@ -26,8 +27,8 @@ public class AssuranceController {
     @RequestMapping("")
     public String toLogin(Model model) {
         //ici on doit renvoyer un User du fait traitement avec modelAttribute et path côté jsp
-        model.addAttribute(new User());
-        return("souscription");
+        model.addAttribute(new Etude());
+        return("etude");
     }
 
     // on passe un objet user en paramètre : mapping automatique des champs du formulaire
@@ -48,17 +49,23 @@ public class AssuranceController {
         }
     }
 
- /*   @RequestMapping("souscription")
-    public String souscriptionContrat(@SessionAttribute String courant, BindingResult bindingResult, Model model) {
-        Date dateDebut = (Date) model.getAttribute("dateDebutContrat");
-        Date dateFin = (Date) model.getAttribute("dateFinContrat");
+    @RequestMapping("etude")
+    public String ajouterEtude(Etude etude, Model model) {;
+        facade.creerEtude(etude.getAnnee(),etude.getCycle(),etude.getCursus(),etude.getPrix());
+        model.addAttribute(new Contrat());
+        return "souscription";
+    }
+
+    @RequestMapping("souscription")
+    public String souscriptionContrat(@SessionAttribute String courant, Contrat contrat, Model model) {;
         try {
-            facade.creerContrat(courant,dateDebut,dateFin);
+            facade.creerContrat(courant, contrat.getDateDebutContrat(), contrat.getDateFinContrat());
         } catch (contratInvalidException | idTauxNonTrouveeException | tauxInvalidException e) {
-            return "souscription";
+            e.printStackTrace();
         }
         return "welcome";
-    }*/
+    }
+
 
     @RequestMapping("simplecheck")
     public String simpleCheck(@SessionAttribute String courant,Model model){

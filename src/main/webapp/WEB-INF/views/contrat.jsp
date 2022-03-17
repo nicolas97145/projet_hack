@@ -9,25 +9,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Contrats</title>
+    <title>Contrat</title>
     <%@ include file="header.jsp" %>
 </head>
-<body>
-
-
-<p style="text-align: center">${sessionScope.testContrat}</p>
-
-
-<c:if test="${ not empty sessionScope.contrat}">
-    <p style="text-align: center">Contrats : </p>
-    <c:forEach var="unContrat" items="${ contrat }">
-        <li><c:out value="${ unContrat.numeroContrat }" />
-            <c:out value="${ unContrat.dateDébutContrat }" />
-            <c:out value="${ unContrat.dateFinContrat }" />
-            <c:out value="${ unContrat.prixAnnuel }" />
-    </c:forEach>
+<body style="text-align: center">
+<h1 class="h3">Contrat en cours</h1>
+<p>Numéro du contrat : ${numeroContrat}</p>
+<p>Date de début du contrat : ${dateDebutContrat}</p>
+<p>Date de fin du contrat : ${dateFinContrat}</p>
+<p>Prix du contrat à l'année : ${prixAnnuel} €</p>
+<c:if test="${ not empty sinistreDate}">
+<p>Sinistre : ${sinistreDate}
+    Pourcentage : ${sinistrePourcentage}
+    Indemnite : ${sinistreIndemn}</p>
 </c:if>
-
 </body>
 <%@ include file="footer.jsp" %>
 </html>

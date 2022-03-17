@@ -185,10 +185,15 @@ public class AssuranceController {
         try {
             List<Contrat> contrats = facade.getContrats(model.getAttribute("courant").toString());
            if (contrats.size()>0){
-               model.addAttribute("testContrat","Vous n'avez pas de contrat");
-               model.addAttribute("contrat", contrats);
-           }else{
-               model.addAttribute("testContrat","");
+               model.addAttribute("numeroContrat", contrats.get(0).getNumeroContrat() );
+               model.addAttribute("dateDebutContrat",contrats.get(0).getDateDebutContrat() );
+               model.addAttribute("dateFinContrat",contrats.get(0).getDateFinContrat()) ;
+               model.addAttribute("prixAnnuel", contrats.get(0).getPrixAnnuel() );
+               if (contrats.get(0).getSinistre() != null) {
+                   model.addAttribute("sinistreDate", contrats.get(0).getSinistre().getDateDeclaration());
+                   model.addAttribute("sinistrePourcentage", contrats.get(0).getSinistre().getPourcentageRemboursement());
+                   model.addAttribute("sinistreIndemn", contrats.get(0).getSinistre().getIndemnite());
+               }
            }
            return "contrat";
         } catch (UtilisateurInexistantException e) {

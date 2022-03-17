@@ -25,7 +25,7 @@
     </div>
     <p><form:label class="col-sm-2 col-form-label" path="mail">Adresse Mail</form:label> <form:input class="form-control form-control-lg" type="text" path="mail"/></p>
     <p><form:label class="col-sm-2 col-form-label" path="password">Mot de Passe</form:label> <form:password class="form-control form-control-lg" path="password"/></p>
-    <p><form:label class="col-sm-2 col-form-label" path="bac">Cycle</form:label><form:select class="form-control form-control-lg" path="bac">
+    <p><form:label class="col-sm-2 col-form-label" path="bac">Baccalauréat</form:label><form:select class="form-control form-control-lg" path="bac">
         <form:option value="0">--Sélectionnez---</form:option>
         <form:option value="GENERAL">GENERAL</form:option>
         <form:option value="PROFESSIONNEL">PROFESSIONNEL</form:option>

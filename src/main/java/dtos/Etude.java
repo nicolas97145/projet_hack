@@ -2,26 +2,26 @@ package dtos;
 
 public class Etude {
 
-    private int année;
+    private int annee;
     private String cursus;
     private double prix;
     private String cycle;
 
     public Etude(){}
 
-    public Etude(int année, String cycle, String cursus, double prix) {
-        this.année = année;
+    public Etude(int annee, String cycle, String cursus, double prix) {
+        this.annee = annee;
         this.cursus = cursus;
         this.cycle = cycle;
         this.prix = prix;
     }
 
-    public int getAnnée() {
-        return année;
+    public int getAnnee() {
+        return annee;
     }
 
-    public void setAnnée(int année) {
-        this.année = année;
+    public void setAnnee(int annee) {
+        this.annee = annee;
     }
 
     public String getCursus() {

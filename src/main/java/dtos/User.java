@@ -22,7 +22,7 @@ public class User {
     private String password;
 
 
-    private String Bac;
+    private String bac;
     private enum mention {NA, AB, B, TB}
     List<Contrat> contrats;
 
@@ -87,7 +87,7 @@ public class User {
     }
 
     public String getBac() {
-        return Bac;
+        return bac;
     }
 
     public List<Contrat> getContrats() {
@@ -95,7 +95,7 @@ public class User {
     }
 
     public void setBac(String bac) {
-        Bac = bac;
+        this.bac = bac;
     }
 
     public void setContrats(List<Contrat> contrats) {

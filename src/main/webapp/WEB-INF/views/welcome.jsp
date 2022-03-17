@@ -9,7 +9,7 @@
 <body>
 <div class="card">
     <div style="text-align: center">
-        <h2>Bienvenue</h2>
+        <h2>Bienvenue chez Soumiassurance</h2>
     </div>
     <div class="card-body">
         <blockquote class="blockquote mb-0">

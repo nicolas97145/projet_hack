@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: nico-
@@ -12,6 +13,20 @@
     <%@ include file="header.jsp" %>
 </head>
 <body>
+
+
+<p style="text-align: center">${sessionScope.testContrat}</p>
+
+
+<c:if test="${ not empty sessionScope.contrat}">
+    <p style="text-align: center">Contrats : </p>
+    <c:forEach var="unContrat" items="${ contrat }">
+        <li><c:out value="${ unContrat.numeroContrat }" />
+            <c:out value="${ unContrat.dateDébutContrat }" />
+            <c:out value="${ unContrat.dateFinContrat }" />
+            <c:out value="${ unContrat.prixAnnuel }" />
+    </c:forEach>
+</c:if>
 
 </body>
 <%@ include file="footer.jsp" %>

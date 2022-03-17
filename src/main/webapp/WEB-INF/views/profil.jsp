@@ -1,3 +1,4 @@
+<%@ taglib prefix="p" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: nico-
@@ -20,7 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Souscrire à un contrat</h5>
                     <p class="card-text">Souscrire à un nouveau contrat proposé par notre assurance.</p>
-                    <a href="${pageContext.request.contextPath}/souscription" class="btn btn-primary">Souscription</a>
+                    <a href="${pageContext.request.contextPath}/goEtude" class="btn btn-primary">Souscription</a>
                 </div>
             </div>
         </div>
@@ -30,7 +31,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Consulter un contrat</h5>
                     <p class="card-text">Consulter vos contrats souscrit auprès de notre assurance.</p>
-                    <a href="#" class="btn btn-primary">Consulter</a>
+                    <a href="${pageContext.request.contextPath}/contrat" class="btn btn-primary">Consulter</a>
                 </div>
             </div>
         </div>
@@ -45,7 +46,7 @@
             </div>
         </div>
     </div>
-
+ <p style="color: red;"> ${sessionScope.erreur} </p>
 </body>
 <%@ include file="footer.jsp" %>
 </html>

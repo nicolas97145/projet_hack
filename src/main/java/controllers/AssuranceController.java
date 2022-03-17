@@ -185,14 +185,14 @@ public class AssuranceController {
         try {
             List<Contrat> contrats = facade.getContrats(model.getAttribute("courant").toString());
            if (contrats.size()>0){
-               model.addAttribute("numeroContrat", contrats.get(0).getNumeroContrat() );
-               model.addAttribute("dateDebutContrat",contrats.get(0).getDateDebutContrat() );
-               model.addAttribute("dateFinContrat",contrats.get(0).getDateFinContrat()) ;
-               model.addAttribute("prixAnnuel", contrats.get(0).getPrixAnnuel() );
-               if (contrats.get(0).getSinistre() != null) {
-                   model.addAttribute("sinistreDate", contrats.get(0).getSinistre().getDateDeclaration());
-                   model.addAttribute("sinistrePourcentage", contrats.get(0).getSinistre().getPourcentageRemboursement());
-                   model.addAttribute("sinistreIndemn", contrats.get(0).getSinistre().getIndemnite());
+               model.addAttribute("numeroContrat", contrats.get(contrats.size()-1).getNumeroContrat() );
+               model.addAttribute("dateDebutContrat",contrats.get(contrats.size()-1).getDateDebutContrat() );
+               model.addAttribute("dateFinContrat",contrats.get(contrats.size()-1).getDateFinContrat()) ;
+               model.addAttribute("prixAnnuel", contrats.get(contrats.size()-1).getPrixAnnuel() );
+               if (contrats.get(contrats.size()-1).getSinistre() != null) {
+                   model.addAttribute("sinistreDate", contrats.get(contrats.size()-1).getSinistre().getDateDeclaration());
+                   model.addAttribute("sinistrePourcentage", contrats.get(contrats.size()-1).getSinistre().getPourcentageRemboursement());
+                   model.addAttribute("sinistreIndemn", contrats.get(contrats.size()-1).getSinistre().getIndemnite());
                }
            }
            return "contrat";

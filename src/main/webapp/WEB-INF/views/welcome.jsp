@@ -15,7 +15,6 @@
         <blockquote class="blockquote mb-0">
             <p>Vous allez profiter de la meilleure assurance du marché.</p>
             <p>Chez Soumiassure, on vous assure! Pas de perte d'argent en cas d'échec scolaire!</p>
-            <img src="<c:url value="../images/etudes-assurance.jpg"/>"/>
         </blockquote>
     </div>
 </div>

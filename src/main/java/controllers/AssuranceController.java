@@ -57,13 +57,19 @@ public class AssuranceController {
     }
 
     @RequestMapping("souscription")
-    public String souscriptionContrat(@SessionAttribute String courant, Contrat contrat, Model model) {;
+    public String souscriptionContrat(@SessionAttribute String courant, Contrat contrat, BindingResult bindingResult, Model model) {;
         try {
-            facade.creerContrat(courant, contrat.getDateDebutContrat(), contrat.getDateFinContrat());
+            Contrat monContrat = facade.creerContrat(courant, contrat.getDateDebutContrat(), contrat.getDateFinContrat());
+            model.addAttribute("anneeEtude", monContrat.getEtude().getAnnee());
+            model.addAttribute("cycle",monContrat.getEtude().getCycle());
+            model.addAttribute("cursus",monContrat.getEtude().getCursus());
+            model.addAttribute("prix",monContrat.getEtude().getPrix());
+            model.addAttribute("dateDebutContrat", monContrat.getDateDebutContrat());
+            model.addAttribute("dateFinContrat", monContrat.getDateFinContrat());
         } catch (contratInvalidException | idTauxNonTrouveeException | tauxInvalidException e) {
             e.printStackTrace();
         }
-        return "welcome";
+        return "recapitulatif";
     }
 
 

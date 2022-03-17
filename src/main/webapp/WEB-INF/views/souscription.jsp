@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>SOUSCRIPTION</h1>
+<h1 class="h3">SOUSCRIPTION</h1>
 
 <%--@elvariable id="contrat" type=""--%>
 <div class="card">
